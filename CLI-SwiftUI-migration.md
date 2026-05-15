@@ -27,7 +27,6 @@ This document reflects the current implementation.
   - `closable`
   - `miniaturizable`
   - `resizable`
-  - `fullSizeContentView`
   - `titlebarAppearsTransparent`
   - `closeButtonHidden`
   - `miniaturizeButtonHidden`
