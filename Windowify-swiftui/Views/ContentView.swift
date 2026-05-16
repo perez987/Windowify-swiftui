@@ -14,6 +14,7 @@ struct ContentView: View {
             )
             .padding()
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .dropDestination(for: URL.self) { urls, _ in
             guard let url = urls.first else { return false }
             viewModel.loadImage(from: url)
