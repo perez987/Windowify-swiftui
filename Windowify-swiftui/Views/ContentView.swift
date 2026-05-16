@@ -22,6 +22,6 @@ struct ContentView: View {
         } isTargeted: { targeted in
             isDropTarget = targeted
         }
-        .frame(minWidth: 800, idealWidth: 800, maxWidth: 800, minHeight: 400, idealHeight: 400, maxHeight: 400)
+        .frame(minWidth: 800, idealWidth: 800, maxWidth: 800, minHeight: 372, idealHeight: 372, maxHeight: 372)
     }
 }

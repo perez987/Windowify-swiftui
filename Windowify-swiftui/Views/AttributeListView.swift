@@ -4,7 +4,7 @@ struct AttributeListView: View {
     @ObservedObject var viewModel: WindowifyViewModel
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 16) {
             Text("Window title")
                 .font(.headline)
             TextField("Window title", text: $viewModel.title)
@@ -15,6 +15,8 @@ struct AttributeListView: View {
             .accessibilityLabel("Update preview window")
             .accessibilityHint("Update preview to show current title and attribute changes.")
 
+            Divider()
+            
             Text("Window style")
                 .font(.headline)
 
