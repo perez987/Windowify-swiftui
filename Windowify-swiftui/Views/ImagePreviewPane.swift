@@ -50,5 +50,6 @@ struct ImagePreviewPane: View {
                     .lineLimit(2)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
     }
 }

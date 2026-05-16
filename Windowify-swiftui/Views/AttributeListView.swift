@@ -25,8 +25,10 @@ struct AttributeListView: View {
             }
             .pickerStyle(.radioGroup)
             .labelsHidden()
+
+            Spacer(minLength: 0)
         }
         .padding()
-        .frame(minWidth: 380, idealWidth: 380, maxWidth: 380)
+        .frame(minWidth: 380, idealWidth: 380, maxWidth: 380, maxHeight: .infinity, alignment: .topLeading)
     }
 }
