@@ -33,19 +33,19 @@ Using this picture as example:
 
 **1.-** Default options with titlebar (close, minimise, and resize buttons)
 
-![Default options](Images/Default-options.png)
+<img src="Images/Default-options.png" width="570px">
 
 **2.-** Adding a title to the text box
 
-![Titled window](Images/Default-options-custom-title.png)
+<img src="Images/Default-options-custom-title.png" width="570px">
 
 **3.-** Extended image with no titlebar: image fills the entire window frame
 
-![Minimal window](Images/Minimal-fullSizeContentView-titlebarAppearsTransparent.png)
+<img src="Images/Minimal-fullSizeContentView-titlebarAppearsTransparent.png" width="570px">
 
 **4.-** Extended image with transparent titlebar: standard buttons with the image extending behind a transparent titlebar
 
-![Titled window](Images/Default-options-fullSizeContentView-titlebarAppearsTransparent.png)
+<img src="Images/Default-options-fullSizeContentView-titlebarAppearsTransparent.png" width="570px">
 
 ## Project structure
 
