@@ -2,16 +2,7 @@ import SwiftUI
 
 struct AttributeListView: View {
     @ObservedObject var viewModel: WindowifyViewModel
-    
-    private var minimalBinding: Binding<Bool> {
-        Binding(
-            get: { viewModel.attributes.isMinimal },
-            set: { isMinimal in
-                viewModel.setMinimalEnabled(isMinimal)
-            }
-        )
-    }
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Window title")
@@ -23,23 +14,19 @@ struct AttributeListView: View {
             .disabled(!viewModel.canRefreshPreview)
             .accessibilityLabel("Update preview window")
             .accessibilityHint("Update preview to show current title and attribute changes.")
-            
-            Text("Attributes")
+
+            Text("Window style")
                 .font(.headline)
-            
-            List {
-                    Toggle("closable", isOn: $viewModel.attributes.closable)
-                    Toggle("miniaturizable", isOn: $viewModel.attributes.miniaturizable)
-                    Toggle("resizable", isOn: $viewModel.attributes.resizable)
-                    Toggle("titlebarAppearsTransparent", isOn: $viewModel.attributes.titlebarAppearsTransparent)
-                    Toggle("closeButtonHidden", isOn: $viewModel.attributes.closeButtonHidden)
-                    Toggle("miniaturizeButtonHidden", isOn: $viewModel.attributes.miniaturizeButtonHidden)
-                    Toggle("zoomButtonHidden", isOn: $viewModel.attributes.zoomButtonHidden)
-                    Toggle("--minimal", isOn: minimalBinding)
+
+            Picker("Window style", selection: $viewModel.selectedMode) {
+                ForEach(WindowMode.allCases) { mode in
+                    Text(LocalizedStringKey(mode.labelKey)).tag(mode)
                 }
-            .listStyle(.plain)
             }
-            .padding()
-            .frame(minWidth: 360, idealWidth: 360, maxWidth: 360)
+            .pickerStyle(.radioGroup)
+            .labelsHidden()
         }
+        .padding()
+        .frame(minWidth: 380, idealWidth: 380, maxWidth: 380)
     }
+}

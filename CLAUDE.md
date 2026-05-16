@@ -40,20 +40,20 @@ High-signal onboarding guide for agent sessions in this repository.
 - `Windowify-swiftui/ViewModels/WindowifyViewModel.swift`
   - Image loading/validation (`png`, `jpg`, `jpeg`).
   - Preview window creation/update (`NSWindow`, style masks, title/button visibility).
-  - Minimal shortcut state snapshot/restore behavior.
+  - `selectedMode: WindowMode` drives attribute state; changing mode rebuilds `WindowAttributes`.
 
 ### Data model
 
 - `Windowify-swiftui/Models/WindowAttributes.swift`
-  - Window attribute flags and `isMinimal` derived state.
-  - `applyMinimalShortcut(_:)` default toggle behavior.
+  - `WindowMode` enum (three cases) and `WindowAttributes.from(mode:)` factory.
+  - `WindowAttributes` struct holds individual window flags consumed by the view model.
 
 ### UI
 
 - `Windowify-swiftui/Views/ContentView.swift`
   - Main layout, drag-and-drop handling, root composition.
 - `Windowify-swiftui/Views/AttributeListView.swift`
-  - Title field, update button, toggles for all attributes.
+  - Title field, update button, and the three-option window-style radio picker.
 - `Windowify-swiftui/Views/ImagePreviewPane.swift`
   - Image drop zone and preview/status presentation.
 
@@ -74,10 +74,10 @@ High-signal onboarding guide for agent sessions in this repository.
 
 ## 5) Common change map
 
-- Add or change a window attribute:
-  1. Update `Models/WindowAttributes.swift`
-  2. Wire behavior in `ViewModels/WindowifyViewModel.swift`
-  3. Expose control in `Views/AttributeListView.swift`
+- Add or change a window style option:
+  1. Update the `WindowMode` enum and `WindowAttributes.from(mode:)` in `Models/WindowAttributes.swift`
+  2. Update `Views/AttributeListView.swift` if new label text is needed
+  3. Add/update localization keys in both `Languages/*/Localizable.strings`
   4. Update `README.md` if user-facing semantics changed
 
 - Change image input behavior:

@@ -17,16 +17,11 @@
    - dragging the file onto the main window, or
    - using **File → Open…** (`⌘O`).
 3. Use the title field to set the window title (optional).
-4. Enable/disable attributes via checkboxes (`titled` always stays enabled so the generated window keeps rounded corners):
-   - `minimal` (shortcut for -closable -miniaturizable -resizable +titlebarAppearsTransparent and its paired full-size content behavior)
-   - `closable`
-   - `miniaturizable`
-   - `resizable`
-   - `titlebarAppearsTransparent` (also applies `fullSizeContentView`)
-   - `closeButtonHidden`
-   - `miniaturizeButtonHidden`
-   - `zoomButtonHidden`
-5. Click **Update Preview** after changing the title or attributes to refresh the preview window.
+4. Choose a window style from the three options:
+   - **Default options with titlebar** — standard window with close, minimise, and resize buttons.
+   - **Extended image with no titlebar** — borderless window where the image fills the entire frame.
+   - **Extended image with transparent titlebar** — standard window buttons with the image extending behind a transparent titlebar.
+5. Click **Update Preview** after changing the title or style to refresh the preview window.
 6. Press **⌘W** while the preview window is focused to close just that preview window.
 
 ## Example
@@ -38,7 +33,7 @@ Using this picture as example:
 | ![Preview pane](Images/Example.png) |
 <br>
 
-**1.-** Default options (automatically checks `closable` `miniaturizable` `resizable`)
+**1.-** Default options with titlebar (close, minimise, and resize buttons)
 
 ![Default options](Images/Default-options.png)
 
@@ -46,11 +41,11 @@ Using this picture as example:
 
 ![Titled window](Images/Default-options-custom-title.png)
 
-**3.-** Checking `minimal` applies a simpler window style by turning off `closable` `miniaturizable` `resizable` and turning on `titlebarAppearsTransparent`
+**3.-** Extended image with no titlebar: image fills the entire window frame
 
 ![Minimal window](Images/Minimal-fullSizeContentView-titlebarAppearsTransparent.png)
 
-**4.-** Transparent titlebar with full size content: checks default options (`closable` `miniaturizable` `resizable`) and also `titlebarAppearsTransparent`
+**4.-** Extended image with transparent titlebar: standard buttons with the image extending behind a transparent titlebar
 
 ![Titled window](Images/Default-options-fullSizeContentView-titlebarAppearsTransparent.png)
 

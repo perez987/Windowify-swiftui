@@ -23,17 +23,12 @@ This document reflects the current implementation.
 
 ## Attribute controls
 
-- Toggle controls are available for:
-  - `closable`
-  - `miniaturizable`
-  - `resizable`
-  - `titlebarAppearsTransparent`
-  - `closeButtonHidden`
-  - `miniaturizeButtonHidden`
-  - `zoomButtonHidden`
-- `--minimal` is exposed as a UI toggle:
-  - Enabling gets a snapshot of selected attributes and applies minimal settings.
-  - Disabling restores the previous snapshot when available.
+- A **Window style** radio-button picker replaces the previous individual toggles.
+- The three choices map to fixed attribute combinations:
+  - **Default options with titlebar** — `closable`, `miniaturizable`, `resizable` enabled; no transparency.
+  - **Extended image with no titlebar** — all three disabled; `titlebarAppearsTransparent` + `fullSizeContentView` enabled.
+  - **Extended image with transparent titlebar** — `closable`, `miniaturizable`, `resizable` enabled; `titlebarAppearsTransparent` + `fullSizeContentView` also enabled.
+- Mode selection is exposed via `selectedMode: WindowMode` on the view model; changing it updates the internal `WindowAttributes` automatically.
 
 ## Preview window behavior
 
