@@ -17,39 +17,20 @@ private final class PreviewWindow: NSWindow {
 
 @MainActor
 final class WindowifyViewModel: ObservableObject {
-    private struct MinimalShortcutSnapshot {
-        let closable: Bool
-        let miniaturizable: Bool
-        let resizable: Bool
-        let fullSizeContentView: Bool
-        let titlebarAppearsTransparent: Bool
-
-        init(attributes: WindowAttributes) {
-            closable = attributes.closable
-            miniaturizable = attributes.miniaturizable
-            resizable = attributes.resizable
-            fullSizeContentView = attributes.fullSizeContentView
-            titlebarAppearsTransparent = attributes.titlebarAppearsTransparent
-        }
-    }
-
     @Published var image: NSImage? {
         didSet { updatePreviewWindow() }
     }
 
     @Published var imageURL: URL?
     @Published var title = ""
-    @Published var attributes = WindowAttributes() {
-        didSet {
-            guard !isSynchronizingAttributes else { return }
-            synchronizeTitlebarTransparencyOptions()
-        }
+    @Published var selectedMode: WindowMode = .default {
+        didSet { attributes = WindowAttributes.from(mode: selectedMode) }
     }
+
+    private(set) var attributes = WindowAttributes()
 
     private var previewWindow: NSWindow?
     private var previewImageView: NSImageView?
-    private var minimalShortcutSnapshot: MinimalShortcutSnapshot?
-    private var isSynchronizingAttributes = false
 
     func openImagePanel() {
         let panel = NSOpenPanel()
@@ -80,47 +61,8 @@ final class WindowifyViewModel: ObservableObject {
         self.image = image
     }
 
-    func setMinimalEnabled(_ isEnabled: Bool) {
-        var updatedAttributes = attributes
-
-        if isEnabled {
-            minimalShortcutSnapshot = MinimalShortcutSnapshot(attributes: updatedAttributes)
-            updatedAttributes.applyMinimalShortcut(true)
-            attributes = updatedAttributes
-            return
-        }
-
-        if let minimalShortcutSnapshot {
-            updatedAttributes.closable = minimalShortcutSnapshot.closable
-            updatedAttributes.miniaturizable = minimalShortcutSnapshot.miniaturizable
-            updatedAttributes.resizable = minimalShortcutSnapshot.resizable
-            updatedAttributes.fullSizeContentView = minimalShortcutSnapshot.fullSizeContentView
-            updatedAttributes.titlebarAppearsTransparent =
-                minimalShortcutSnapshot.titlebarAppearsTransparent
-            self.minimalShortcutSnapshot = nil
-        } else {
-            updatedAttributes.applyMinimalShortcut(false)
-        }
-
-        attributes = updatedAttributes
-    }
-
     var canRefreshPreview: Bool {
         image != nil
-    }
-
-    private func synchronizeTitlebarTransparencyOptions() {
-        let shouldEnableUnifiedOption =
-            attributes.titlebarAppearsTransparent || attributes.fullSizeContentView
-        guard
-            attributes.titlebarAppearsTransparent != shouldEnableUnifiedOption
-            || attributes.fullSizeContentView != shouldEnableUnifiedOption
-        else { return }
-
-        isSynchronizingAttributes = true
-        defer { isSynchronizingAttributes = false }
-        attributes.titlebarAppearsTransparent = shouldEnableUnifiedOption
-        attributes.fullSizeContentView = shouldEnableUnifiedOption
     }
 
     private func styleMask() -> NSWindow.StyleMask {

@@ -7,13 +7,7 @@
 "Update Preview" = "Actualizar vista previa";
 "Update preview window" = "Actualizar ventana de vista previa";
 "Update preview to show current title and attribute changes." = "Actualiza la vista previa para mostrar los cambios actuales de título y atributos.";
-"Attributes" = "Atributos";
-"--minimal" = "--minimal";
-"closable" = "closable";
-"miniaturizable" = "miniaturizable";
-"resizable" = "resizable";
-"fullSizeContentView" = "fullSizeContentView";
-"titlebarAppearsTransparent" = "titlebarAppearsTransparent";
-"closeButtonHidden" = "closeButtonHidden";
-"miniaturizeButtonHidden" = "miniaturizeButtonHidden";
-"zoomButtonHidden" = "zoomButtonHidden";
+"Window style" = "Estilo de ventana";
+"Default options with titlebar" = "Opciones predeterminadas con barra de título";
+"Extended image with no titlebar" = "Imagen extendida sin barra de título";
+"Extended image with transparent titlebar" = "Imagen extendida con barra de título transparente";

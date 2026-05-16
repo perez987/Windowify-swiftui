@@ -7,13 +7,7 @@
 "Update Preview" = "Update Preview";
 "Update preview window" = "Update preview window";
 "Update preview to show current title and attribute changes." = "Update preview to show current title and attribute changes.";
-"Attributes" = "Attributes";
-"--minimal" = "--minimal";
-"closable" = "closable";
-"miniaturizable" = "miniaturizable";
-"resizable" = "resizable";
-"fullSizeContentView" = "fullSizeContentView";
-"titlebarAppearsTransparent" = "titlebarAppearsTransparent";
-"closeButtonHidden" = "closeButtonHidden";
-"miniaturizeButtonHidden" = "miniaturizeButtonHidden";
-"zoomButtonHidden" = "zoomButtonHidden";
+"Window style" = "Window style";
+"Default options with titlebar" = "Default options with titlebar";
+"Extended image with no titlebar" = "Extended image with no titlebar";
+"Extended image with transparent titlebar" = "Extended image with transparent titlebar";
