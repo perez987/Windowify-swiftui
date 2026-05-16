@@ -28,9 +28,7 @@
 
 Using this picture as example:
 
-| |
-| --- |
-| ![Preview pane](Images/Example.png) |
+<img src="Images/Example.png" width="500px">
 <br>
 
 **1.-** Default options with titlebar (close, minimise, and resize buttons)
