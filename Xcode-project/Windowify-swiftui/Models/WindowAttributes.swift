@@ -3,7 +3,9 @@ enum WindowMode: CaseIterable, Identifiable {
     case noTitlebar
     case transparentTitlebar
 
-    var id: Self { self }
+    var id: Self {
+        self
+    }
 
     var labelKey: String {
         switch self {

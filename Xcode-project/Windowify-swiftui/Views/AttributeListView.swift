@@ -16,7 +16,7 @@ struct AttributeListView: View {
             .accessibilityHint("Update preview to show current title and attribute changes.")
 
             Divider()
-            
+
             Text("Window style")
                 .font(.headline)
 
